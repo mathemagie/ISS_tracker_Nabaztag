@@ -2,6 +2,8 @@ from skyfield.api import load, wgs84
 import utm
 import time
 
+print ("coucou")
+
 #create a function to get UTM coordinates from lat/long
 def get_utm(lat, lon):
     #convert lat/long to UTM
