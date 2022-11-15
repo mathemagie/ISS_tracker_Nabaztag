@@ -1,4 +1,5 @@
-run = "cowsay Configure me!"
+language = "python3"
+run = "main.py"
 
 [nix]
 channel = "stable-21_11"
