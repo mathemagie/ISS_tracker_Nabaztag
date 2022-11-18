@@ -2,8 +2,6 @@ from skyfield.api import load, wgs84
 import utm
 import time
 
-print ("coucou")
-
 #create a function to get UTM coordinates from lat/long
 def get_utm(lat, lon):
     #convert lat/long to UTM
@@ -31,18 +29,15 @@ if abs(days) > 14:
 else:
     print('Satellite is within 2 weeks of epoch')
 
-
-
 while 1:
     t = ts.now()
 
     geocentric = satellite.at(t)
     subpoint = wgs84.subpoint(geocentric)
-    print("=========")
+    print("\n========================\n")
     print('Latitude:', subpoint.latitude)
     print('Longitude:', subpoint.longitude)
     print('Elevation (m):', int(subpoint.elevation.m))
-    print("=========")
 
     bluffton = wgs84.latlon(48.856613, 2.352222)
 
@@ -53,9 +48,9 @@ while 1:
     if alt.degrees > 0:
         print('The ISS is above the horizon')
 
-    print("altitude", alt)
-    print("azimut", az)
-    print(int(distance.km), 'km')
+    print("Altitude:", alt)
+    print("Azimut:", az)
+    print(int(distance.km), 'km de distance par rapport à Paris')
 
     #call the function to get UTM coordinates
     utm_val= get_utm(float(subpoint.latitude.degrees), float(subpoint.longitude.degrees))
